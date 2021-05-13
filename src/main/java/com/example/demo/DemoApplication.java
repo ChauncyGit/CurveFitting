@@ -11,7 +11,6 @@ import org.apache.commons.math3.fitting.WeightedObservedPoints;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -24,12 +23,13 @@ public class DemoApplication {
 
     @GetMapping("/hello")
     public List<Double> hello() {
-        List<String> input = Arrays.asList("1", "2", "3", "4", "1", "6", "7", "8", "9", "9", "9.1", "1", "9", "9.5", "8.8", "9");
+        List<String> input = Arrays.asList("1", "2", "3", "4", "1", "6", "7", "8", "9", "9", "9.1", "1", "9", "9.5",
+                "8.8", "9");
         List<Double> result = this.polynomial(input);
         Iterator<Double> it1 = result.iterator();
-		while (it1.hasNext()) {
-			System.out.println(it1.next());
-		}
+        while (it1.hasNext()) {
+            System.out.println(it1.next());
+        }
         return result;
     }
 
